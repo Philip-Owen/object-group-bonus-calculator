@@ -80,21 +80,23 @@ function Bonus(emp) {
     return basePercent;
   }
 
+  // reference the getPercentage function
   this.bonusPercentage = getPercentage();
 
   // totalBonus
     // get bonusPercentage
     // percentage * annualSalary
     // Math.round()
-  this.totalBonus = Math.round(this.bonusPercentage * emp.annualSalary);
+  this.totalBonus = Math.round(Number(this.bonusPercentage * emp.annualSalary));
 
   // totalComp
     // annualSalary + totalBonus
-  this.totalComp = parseInt(emp.annualSalary) + this.totalBonus;
+  this.totalComp = Number(emp.annualSalary) + this.totalBonus;
 }
 
+// looping over employees array
+// running Bonus contructor each time
 
-
-
-var atticusBonus = new Bonus(atticus);
-console.log(atticusBonus);
+for (var i = 0; i < employees.length; i++) {
+  console.log(new Bonus(employees[i]));
+}
